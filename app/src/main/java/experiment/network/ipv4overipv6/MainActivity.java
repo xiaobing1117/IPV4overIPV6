@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     TextView test;
 
     Handler handler;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,13 +58,14 @@ public class MainActivity extends AppCompatActivity {
     public void link_to_server()
     {
         try {
-            socket = new Socket(server_ip,server_port);
-            Log.e("success","connected to server");
+            //socket = new Socket(server_ip,server_port);
+            //Log.e("success","connected to server");
         }catch(Exception e){
             Log.e("error","connection failed");
             e.printStackTrace();
         }
 
+        Log.e("C++ connection:",String.valueOf(setConnection()));
     }
 
     public void init(){//do some initialization to variables
@@ -164,13 +167,14 @@ public class MainActivity extends AppCompatActivity {
 
 
             startService(intent);
+
         }
     }
 
-    public native String stringFromJNI();
+    public native int setConnection();
 
-    static {
-        System.loadLibrary("hellojni");
+    static {;
+        System.loadLibrary("setConnection");
     }
 }
 
