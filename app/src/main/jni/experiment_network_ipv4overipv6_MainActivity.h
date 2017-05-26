@@ -13,7 +13,7 @@ extern "C" {
  * Signature: ()I
  */
 JNIEXPORT jint JNICALL Java_experiment_network_ipv4overipv6_MainActivity_setConnection
-  (JNIEnv *, jobject);
+  (JNIEnv *, jobject,jstring dir);
 
 #ifdef __cplusplus
 }
